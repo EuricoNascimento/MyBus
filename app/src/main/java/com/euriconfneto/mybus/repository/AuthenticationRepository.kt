@@ -1,9 +1,8 @@
 package com.euriconfneto.mybus.repository
 
-import android.content.Context
 import com.euriconfneto.mybus.R
 import com.euriconfneto.mybus.listener.APIListener
-import com.euriconfneto.mybus.repository.api.AuthenticationService
+import com.euriconfneto.mybus.repository.api.service.AuthenticationService
 import com.euriconfneto.mybus.repository.api.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback

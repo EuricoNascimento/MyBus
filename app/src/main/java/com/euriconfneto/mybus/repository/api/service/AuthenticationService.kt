@@ -1,4 +1,4 @@
-package com.euriconfneto.mybus.repository.api
+package com.euriconfneto.mybus.repository.api.service
 
 import retrofit2.Call
 import retrofit2.http.POST
