@@ -1,4 +1,4 @@
-package com.euriconfneto.mybus.ui.home
+package com.euriconfneto.mybus.ui.busstation
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -10,7 +10,7 @@ import com.euriconfneto.mybus.repository.AuthenticationRepository
 import com.euriconfneto.mybus.repository.BusStationRepository
 import com.euriconfneto.mybus.repository.model.BusStationModel
 
-class HomeViewModel(application: Application) : AndroidViewModel(application) {
+class BusStationViewModel(application: Application) : AndroidViewModel(application) {
     private val authenticationRepository = AuthenticationRepository()
     private val busStationRepository = BusStationRepository()
     private val _authentication = MutableLiveData<Boolean>()

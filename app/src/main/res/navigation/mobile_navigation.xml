@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_busstation">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.euriconfneto.mybus.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_busstation"
+        android:name="com.euriconfneto.mybus.ui.busstation.BusStationFragment"
+        android:label="@string/title_busStation"
+        tools:layout="@layout/fragment_busstation" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.euriconfneto.mybus.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_bus"
+        android:name="com.euriconfneto.mybus.ui.bus.BusFragment"
+        android:label="@string/title_bus"
+        tools:layout="@layout/fragment_bus" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.euriconfneto.mybus.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_lane"
+        android:name="com.euriconfneto.mybus.ui.lane.LaneFragment"
+        android:label="@string/title_lane"
+        tools:layout="@layout/fragment_lane" />
 </navigation>

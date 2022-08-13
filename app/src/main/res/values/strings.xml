@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">MyBus</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="error_authentication">Error: Não foi possivel conectar a API</string>
     <string name="error_empty_text">Erro: Texto vazio</string>
+    <string name="title_lane">Linhas</string>
+    <string name="title_bus">Ônibus</string>
+    <string name="title_busStation">Paradas</string>
+    <string name="search_button">Botão de procurar</string>
+    <string name="search_bus_station">Parada</string>
 </resources>
