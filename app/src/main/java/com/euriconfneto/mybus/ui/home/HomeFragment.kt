@@ -18,7 +18,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class HomeFragment : Fragment(), OnMapReadyCallback {
+class HomeFragment : Fragment(), OnMapReadyCallback, View.OnClickListener {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
@@ -35,9 +35,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
         homeViewModel.authentication()
+
+        binding.imageSearch.setOnClickListener(this)
 
         //Criar Mapa
         val mapFragment = childFragmentManager
@@ -45,11 +46,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         //Procura procura parada
-        homeViewModel.getBusStation("Afonso")
 
         observer()
 
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
@@ -77,9 +77,20 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    override fun onClick(v: View) {
+        if(v.id == R.id.image_search){
+            val termSearch = binding.editSearch.text.toString()
+            if (termSearch != ""){
+                homeViewModel.getBusStation(termSearch)
+            }else{
+                Toast.makeText(context, R.string.error_empty_text, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     private fun observer(){
         homeViewModel.authentication.observe(viewLifecycleOwner){
-            if (!it){
+            if (it){
                 Toast.makeText(context, R.string.error_authentication, Toast.LENGTH_SHORT).show()
             }
         }

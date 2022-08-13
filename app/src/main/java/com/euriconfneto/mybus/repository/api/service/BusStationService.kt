@@ -4,21 +4,22 @@ import com.euriconfneto.mybus.repository.model.BusStationModel
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface BusStationService {
-    @GET("Parada/Buscar{termosBuscar}")
+    @GET("Parada/Buscar")
     fun findBusStation(
-        @Path("termosBuscar") termosBuscar: String
+        @Query("termosBuscar") termosBuscar: String
     ): Call<List<BusStationModel>>
 
-    @GET("Parada/BuscarParadasPorLinha{codigoLinha}")
+    @GET("Parada/BuscarParadasPorLinha")
     fun findBusStationByLine(
-        @Path("codigoLinha") codigoLinha: String
+        @Query("codigoLinha") codigoLinha: String
     ): Call<List<BusStationModel>>
 
-    @GET("Parada/BuscarParadasPorCorredo{codigoCorredor}")
+    @GET("Parada/BuscarParadasPorCorredoA")
     fun findBusStationByLane(
-        @Path("codigoCorredor") codigoCorredor: String
+        @Query("codigoCorredor") codigoCorredor: String
     ): Call<List<BusStationModel>>
 
 }

@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Eurico Neto/Documents/Eurico Coisas/Projetos/Kotlin/MyBus/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/Eurico Neto/Documents/Eurico Coisas/Projetos/Kotlin/MyBus/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Eurico Neto/Documents/Eurico Coisas/Projetos/Kotlin/MyBus/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/Eurico Neto/Documents/Eurico Coisas/Projetos/Kotlin/MyBus/app/src/main/res/layout/fragment_notifications.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Eurico Neto/Documents/Eurico Coisas/Projetos/Kotlin/MyBus/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
