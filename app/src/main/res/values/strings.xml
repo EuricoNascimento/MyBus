@@ -7,4 +7,12 @@
     <string name="title_busStation">Paradas</string>
     <string name="search_button">Botão de procurar</string>
     <string name="search_bus_station">Parada</string>
+    <string name="direction">Sentido</string>
+    <string name="main_terminal">Principal: </string>
+    <string name="second_terminal">Secundario: </string>
+    <string name="circular">Circular: </string>
+    <string name="answer_true">Sim</string>
+    <string name="answer_false">Não</string>
+    <string name="tl">tl</string>
+    <string name="lt">lt</string>
 </resources>

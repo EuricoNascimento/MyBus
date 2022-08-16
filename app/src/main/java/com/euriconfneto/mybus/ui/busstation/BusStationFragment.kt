@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.euriconfneto.mybus.R
 import com.euriconfneto.mybus.databinding.FragmentBusstationBinding
-import com.euriconfneto.mybus.repository.model.BusStationModel
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -23,7 +22,6 @@ class BusStationFragment : Fragment(), OnMapReadyCallback, View.OnClickListener 
     private lateinit var busStationViewModel: BusStationViewModel
     private var _binding: FragmentBusstationBinding? = null
     private lateinit var mMap: GoogleMap
-    private var list = listOf<BusStationModel>()
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -36,16 +34,14 @@ class BusStationFragment : Fragment(), OnMapReadyCallback, View.OnClickListener 
 
         _binding = FragmentBusstationBinding.inflate(inflater, container, false)
 
-        busStationViewModel.authentication()
-
         binding.imageSearch.setOnClickListener(this)
+
+        busStationViewModel.authentication()
 
         //Criar Mapa
         val mapFragment = childFragmentManager
             .findFragmentById(R.id.fragment_map_bus_station) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
-        //Procura procura parada
 
         observer()
 
@@ -60,21 +56,12 @@ class BusStationFragment : Fragment(), OnMapReadyCallback, View.OnClickListener 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        if(list.isEmpty()) {
-            mMap.addMarker(
-                MarkerOptions()
-                    .position(LatLng(0.0, 0.0))
-                    .title("Marker")
-            )
-        } else {
-            val latLng = LatLng(list[0].stationLatitude, list[0].stationLongitude)
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-            list.forEach{
-                mMap.addMarker(MarkerOptions()
-                    .position(LatLng(it.stationLatitude, it.stationLongitude))
-                    .title(it.stationName))
-            }
-        }
+        mMap.addMarker(
+            MarkerOptions()
+                .position(LatLng(0.0, 0.0))
+                .title("Marker")
+        )
+
     }
 
     override fun onClick(v: View) {
@@ -90,20 +77,19 @@ class BusStationFragment : Fragment(), OnMapReadyCallback, View.OnClickListener 
 
     private fun observer(){
         busStationViewModel.authentication.observe(viewLifecycleOwner){
-            if (it){
+            if (!it){
                 Toast.makeText(context, R.string.error_authentication, Toast.LENGTH_SHORT).show()
             }
         }
 
-        busStationViewModel.listLocation.observe(viewLifecycleOwner){
-            list = it
-            /*val latLng = LatLng(list[0].stationLatitude, list[0].stationLongitude)
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+        busStationViewModel.listLocation.observe(viewLifecycleOwner){ list ->
+            val latLng = LatLng(list[0].stationLatitude, list[0].stationLongitude)
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15F))
             list.forEach{
                 mMap.addMarker(MarkerOptions()
                     .position(LatLng(it.stationLatitude, it.stationLongitude))
                     .title(it.stationName))
-            }*/
+            }
         }
     }
 }

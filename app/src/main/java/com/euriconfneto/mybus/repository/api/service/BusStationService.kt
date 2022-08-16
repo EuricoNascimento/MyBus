@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface BusStationService {
     @GET("Parada/Buscar")
     fun findBusStation(
-        @Query("termosBuscar") termosBuscar: String
+        @Query("termosBusca") termosBusca: String
     ): Call<List<BusStationModel>>
 
     @GET("Parada/BuscarParadasPorLinha")
@@ -17,7 +17,7 @@ interface BusStationService {
         @Query("codigoLinha") codigoLinha: String
     ): Call<List<BusStationModel>>
 
-    @GET("Parada/BuscarParadasPorCorredoA")
+    @GET("Parada/BuscarParadasPorCorredo")
     fun findBusStationByLane(
         @Query("codigoCorredor") codigoCorredor: String
     ): Call<List<BusStationModel>>
